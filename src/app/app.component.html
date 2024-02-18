@@ -1,0 +1,27 @@
+
+
+---------------------------------------------------------------------
+<div *ngIf="feePayments.length > 0" class="container mt-5">
+  <h2>Fee Payments</h2>
+  <div *ngFor="let payment of feePayments" class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">Payment ID: {{ payment.feePaymentId }}</h5>
+      <p class="card-text">Student ID: {{ payment.studentId }}</p>
+      <p class="card-text">Total Fee Amount: {{ payment.totalFeeAmount }}</p>
+      <p class="card-text">Discount: {{ payment.discount }}%</p>
+      <p class="card-text">Amount After Discount: {{ payment.amountAfterDiscount }}</p>
+      <p class="card-text">Previous Due: {{ payment.previousDue }}</p>
+      <p class="card-text">Total Amount: {{ payment.totalAmount }}</p>
+      <p class="card-text">Amount Paid: {{ payment.amountPaid }}</p>
+      <p class="card-text">Amount Remaining: {{ payment.amountRemaining }}</p>
+      <p class="card-text">Payment Date: {{ payment.paymentDate | date: 'medium' }}</p>
+
+      <h6 class="mt-3">Fee Payment Details:</h6>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let detail of payment.feePaymentDetails">
+          Fee Type ID: {{ detail.feeTypeId }}, Fee Amount: {{ detail.feeAmount }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
